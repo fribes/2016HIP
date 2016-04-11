@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#known="HIP{f3a306095ecc4dad3d0056ad7b0c135afd89e3127e2"
 known="HIP{"
-while true
+i=" "
+while [ "$i" != "}" ]
 do
 	len=${#known}
 	found="no"
