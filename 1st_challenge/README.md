@@ -57,3 +57,10 @@ EOF
 sed -i -e 's@^CFLAGS+=-I.*@& -I./libpng-1.5.26/compiled/include@' -e 's@^LDFLAGS=-g.*@& -L./libpng-1.5.26/compiled/lib@' Makefile
 make
 LD_LIBRARY_PATH=./libpng-1.5.26/compiled/lib/ ./bpgdec -i ./db7118d5-e1ad-49d0-84e7-3850d4c21210.bin|sed -n -e 's/^0x[^:]*:[[:blank:]]*\([^[:blank:]]*\)[[:blank:]]*$/0x\1,/p'|xargs echo|sed -e '1iimport struct,sys' -e '1s/^.*$/A=[&]/' -e '1asys.stdout.write(struct.pack("B"*len(A), *A))'|python > ./payload.pyc
+
+
+
+uncompiled with:
+ git clone https://github.com/Mysterie/uncompyle2.git
+ ./uncompyle2/scripts/uncompyle2 payload.pyc > uncompiled.py
+
