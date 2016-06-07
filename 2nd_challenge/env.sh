@@ -1,4 +1,0 @@
-#!/bin/bash
-
-export VOLATILITY_PROFILE=Win7SP1x64
-export VOLATILITY_LOCATION=file:$(pwd)/memdump_0x0-0x100000000_20160127-125924.bin
